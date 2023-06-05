@@ -1,0 +1,266 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My HTML Page</title>
+    <link rel="stylesheet" type="text/css" href="./aesthetics.css" />
+    <script src="./script.js"></script>
+  </head>
+
+  <body>
+    <h1>
+      <span class="red">P</span>
+      <span class="orange">A</span>
+      <span class="yellow">I</span>
+      <span class="green">N</span>
+      <span class="blue">T</span>
+      <span class="purple">!</span>
+    </h1>
+
+    &lt;!&ndash; Start Game button &ndash;&gt;
+    <button id="startButton" class="button" onclick="toggleContent()">
+      Start Game
+    </button>
+
+    &lt;!&ndash; Game content section &ndash;&gt;
+    <div id="gameContent" style="display: none">
+      <p>Instructions :</p>
+      <p>1. Click and select a color</p>
+      <p>2. Click and select a blank box</p>
+      <p>3. Use arrow keys (up, down, left, right)</p>
+      <p>4. Repeat until you have your desired drawing</p>
+      &lt;!&ndash; <p>
+        5. Click the "Send to email" button to enter your email and save a copy
+        of your masterpiece
+      </p> &ndash;&gt;
+
+      <table>
+        <tr>
+          <td>
+            &lt;!&ndash; clear button &ndash;&gt;
+            <table>
+              <tr>
+                <td>
+                  <button id="clearButton" class="button" onclick="clearDrawing()">Clear</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button id="undoButton" class="button" onclick="undo()">Undo</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button id="redoButton" class="button" onclick="redo()">Redo</button>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            &lt;!&ndash; Drawing Board container &ndash;&gt;
+            <div id="capture" class="container">
+              &lt;!&ndash; Div1 within the container &ndash;&gt;
+              <div class="div1">
+                <h2>Drawing Board</h2>
+                &lt;!&ndash; Table for the paint box &ndash;&gt;
+                <table id="paintBox"></table>
+                <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            &lt;!&ndash; Table for the color palette &ndash;&gt;
+            <table id="paintTable">
+              &lt;!&ndash; Color palette buttons &ndash;&gt;
+              <tr>
+                <td>
+                  <button
+                    class="color-button red-button"
+                    onclick="setColor('red')"
+                  ></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    class="color-button orange-button"
+                    onclick="setColor('orange')"
+                  ></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    class="color-button yellow-button"
+                    onclick="setColor('yellow')"
+                  ></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    class="color-button green-button"
+                    onclick="setColor('green')"
+                  ></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    class="color-button blue-button"
+                    onclick="setColor('blue')"
+                  ></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    class="color-button purple-button"
+                    onclick="setColor('purple')"
+                  ></button>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <button id="download_image" class="button">Capture</button>
+    </div>
+  </body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Paint App</title>
+  <link rel="stylesheet" type="text/css" href="./aesthetics.css" />
+  <script src="./main.js"></script>
+</head>
+
+<body>
+<h1>
+  <span class="red">P</span>
+  <span class="orange">A</span>
+  <span class="yellow">I</span>
+  <span class="green">N</span>
+  <span class="blue">T</span>
+  <span class="purple">!</span>
+</h1>
+
+<!-- Start Game button -->
+<button id="startButton" class="button" onclick="toggleContent()">
+  Start Game
+</button>
+
+<!-- Game content section -->
+<div id="gameContent" style="display: none">
+  <p>Instructions :</p>
+  <p>1. Click and select a color</p>
+  <p>2. Click and select a blank box</p>
+  <p>3. Use arrow keys (up, down, left, right)</p>
+  <p>4. Repeat until you have your desired drawing</p>
+  <!-- <p>
+    5. Click the "Send to email" button to enter your email and save a copy
+    of your masterpiece
+  </p> -->
+
+  <table>
+    <tr>
+      <td>
+        <!-- clear button -->
+        <table>
+          <tr>
+            <td>
+              <button id="clearButton" class="button">Clear</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button id="undoButton" class="button">Undo</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button id="redoButton" class="button">Redo</button>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <!-- Drawing Board container -->
+        <div id="capture" class="container">
+          <!-- Div1 within the container -->
+          <div class="div1">
+            <h2>Drawing Board</h2>
+            <!-- Table for the paint box -->
+            <table id="paintBox"></table>
+            <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+          </div>
+        </div>
+      </td>
+
+      <td>
+        <!-- Table for the color palette -->
+        <table id="paintTable">
+          <!-- Color palette buttons -->
+          <tr>
+            <td>
+              <button
+                      class="color-button red-button"
+                      data-color="red"
+              ></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                      class="color-button orange-button"
+                      data-color="orange"
+              ></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                      class="color-button yellow-button"
+                      data-color="yellow"
+              ></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                      class="color-button green-button"
+                      data-color="green"
+              ></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                      class="color-button blue-button"
+                      data-color="blue"
+              ></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                      class="color-button purple-button"
+                      data-color="purple"
+              ></button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <button id="download_image" class="button">Capture</button>
+</div>
+</body>
+</html>
+

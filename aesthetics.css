@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+* {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2000en;
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.purple {
+  color: purple;
+}
+
+table {
+  border: 3px black;
+}
+
+td {
+  padding: 1.5em;
+
+}
+#paintBox td {
+  padding: 1.5em;
+  border: 1px solid gray;
+}
+
+element.style {
+  background-color: blue;
+}
+
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+.color-button {
+  width: 100px;
+  height: 100px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.red-button {
+  background-color: red;
+}
+
+.orange-button {
+  background-color: orange;
+}
+
+.yellow-button {
+  background-color: yellow;
+}
+
+.green-button {
+  background-color: green;
+}
+
+.blue-button {
+  background-color: blue;
+}
+
+.purple-button {
+  background-color: purple;
+}
+
+/* Use flexbox layout for the container */
+.container {
+  display: flex;
+}
+
+/* Distribute available space evenly between div1 and div2 */
+.div1,
+.div2 {
+  flex: 1;
+}
+
+/* Style for each color button */
+.color-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  margin-top: 0ch;
+}
+
+/* Set styles for the body element */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Set styles for the container */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Set styles for div elements within the container */
+.container > div {
+  flex: 1;
+  margin-right: 20px;
+}
+
+/* Set styles for each cell in the table */
+.cell {
+  width: 1px;
+  height: 1px;
+  border: 1px solid #000;
+}
+
+/* Set border-collapse property for the paintBox table */
+#paintBox {
+  border-collapse: collapse;
+}
+
+#paintTable {
+  margin-top: 2cm;
+}
+
+/* Styles for the clear button */
+.button {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 0cm;
+  margin-bottom: 1cm;
+}
+
+.button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+#download_image {
+  margin-left: 17.8cm;
+}
