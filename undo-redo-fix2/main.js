@@ -45,6 +45,7 @@ function toggleContent() {
 
 // Function to generate the paint box grid
 function generatePaintBox() {
+    let isMouseDown = false;
     for (let i = 0; i < 10; i++) {
         let row = document.createElement("tr");
         for (let j = 0; j < 10; j++) {
@@ -53,6 +54,20 @@ function generatePaintBox() {
                 if (currentColor) {
                     paintCell(cell);
                 }
+            });
+            cell.addEventListener("mousedown", () => {
+                isMouseDown = true
+                if (currentColor) {
+                    paintCell(cell);
+                }
+            });
+            cell.addEventListener("mouseover", () => {
+                if (isMouseDown && currentColor) {
+                    paintCell(cell);
+                }
+            });
+            cell.addEventListener("mouseup", () => {
+                isMouseDown = false
             });
             row.appendChild(cell);
         }
@@ -68,6 +83,7 @@ function paintCell(cell) {
     let prevColor = cell.style.backgroundColor;
     cell.style.backgroundColor = currentColor;
     undoStack.push({ cell, prevColor });
+    console.log('undoStack', undoStack);
 }
 
 // Function to clear the entire paint box
@@ -93,6 +109,7 @@ function undoPaint() {
         cell.style.backgroundColor = prevColor;
         redoStack.push({ cell, prevColor });
     }
+    console.log('redoStack', redoStack);
 }
 
 // Function to redo the last undone paint operation
@@ -104,7 +121,9 @@ function redoPaint() {
         let { cell, prevColor } = redoStack.pop();
         cell.style.backgroundColor = currentColor;
         undoStack.push({ cell, prevColor });
+        console.log('redoStack', undoStack);
     }
+   
 }
 
 // Function to handle arrow keys for color selection

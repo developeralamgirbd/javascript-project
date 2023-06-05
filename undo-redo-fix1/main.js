@@ -103,8 +103,13 @@ function addEventListeners() {
     redoButton.addEventListener('click', redo);
     colorButtons.forEach((button) => {
         button.addEventListener('click', () => setColor(button.dataset.color));
+
     });
     paintBox.addEventListener('click', handlePaintBoxClick);
+    // paintBox.addEventListener('mouseover', handlePaintBoxClick);
+
+
+
 }
 
 // Initialize the paint app
